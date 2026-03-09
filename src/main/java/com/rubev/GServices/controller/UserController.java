@@ -32,14 +32,14 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);
 
-        return ResponseEntity.ok("User delete successfully");
+        return ResponseEntity.ok("User deleted successfully");
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserRegisterDTO user) {
         boolean updated = userService.updateUser(id, user);
 
-        if(updated) return ResponseEntity.ok("User update successfully");
+        if(updated) return ResponseEntity.ok("User updated successfully");
 
         return ResponseEntity.notFound().build();
     }
